@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#2c2d32" />
+  <title>Elly Pocket Pal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page-shell">
+    <section class="device" aria-label="Elly Pocket Pal virtual pet">
+      <header class="device-header">
+        <div>
+          <p class="eyebrow">POCKET CHIHUAHUA // v1.0</p>
+          <h1>ELLY</h1>
+        </div>
+        <div class="header-actions">
+          <button id="soundBtn" class="tiny-btn" type="button" aria-pressed="true">SOUND: ON</button>
+          <button id="resetBtn" class="tiny-btn danger" type="button">RESET</button>
+        </div>
+      </header>
+
+      <section class="screen" id="screen">
+        <div class="screen-grid" aria-hidden="true"></div>
+        <div class="speech" id="speech" role="status" aria-live="polite">&lt;3</div>
+        <div class="status-chip" id="statusChip">CONTENT</div>
+
+        <div class="pet-stage">
+          <img id="ellySprite" class="elly-sprite" src="assets/idle.png" alt="Pixel art of Elly the black chihuahua" draggable="false" />
+          <img id="poopSprite" class="poop-sprite hidden" src="assets/poop_pile.png" alt="A little pixel poop that needs cleaning" draggable="false" />
+        </div>
+
+        <p class="message" id="message">Elly is waiting for attention.</p>
+      </section>
+
+      <section class="meters" aria-label="Elly's needs">
+        <div class="meter-row">
+          <span class="meter-label">FULL</span>
+          <div class="meter-track"><div id="fullnessBar" class="meter-fill" style="width:78%"></div></div>
+          <span id="fullnessText" class="meter-value">78</span>
+        </div>
+        <div class="meter-row">
+          <span class="meter-label">FUN</span>
+          <div class="meter-track"><div id="funBar" class="meter-fill" style="width:74%"></div></div>
+          <span id="funText" class="meter-value">74</span>
+        </div>
+        <div class="meter-row">
+          <span class="meter-label">CLEAN</span>
+          <div class="meter-track"><div id="cleanBar" class="meter-fill" style="width:82%"></div></div>
+          <span id="cleanText" class="meter-value">82</span>
+        </div>
+        <div class="meter-row">
+          <span class="meter-label">ENERGY</span>
+          <div class="meter-track"><div id="energyBar" class="meter-fill" style="width:70%"></div></div>
+          <span id="energyText" class="meter-value">70</span>
+        </div>
+        <div class="meter-row">
+          <span class="meter-label">LOVE</span>
+          <div class="meter-track"><div id="loveBar" class="meter-fill" style="width:76%"></div></div>
+          <span id="loveText" class="meter-value">76</span>
+        </div>
+      </section>
+
+      <section class="controls" aria-label="Care controls">
+        <button class="care-btn" id="feedBtn" type="button"><span class="btn-icon">▰</span><span>CHICKEN NUGGET</span></button>
+        <button class="care-btn" id="playBtn" type="button"><span class="btn-icon">●</span><span>PLAY</span></button>
+        <button class="care-btn" id="petBtn" type="button"><span class="btn-icon">♥</span><span>PET ELLY</span></button>
+        <button class="care-btn" id="showerBtn" type="button"><span class="btn-icon">≋</span><span>SHOWER</span></button>
+        <button class="care-btn" id="sleepBtn" type="button"><span class="btn-icon">Z</span><span>SLEEP</span></button>
+        <button class="care-btn poop-btn" id="cleanPoopBtn" type="button" disabled><span class="btn-icon">◆</span><span>PICK UP POOP</span></button>
+      </section>
+
+      <footer class="device-footer">
+        <span id="clockText">DAY 1 // 08:00</span>
+        <span id="saveText">AUTO-SAVED</span>
+      </footer>
+    </section>
+
+    <p class="hint">Tip: nuggets have consequences. Neglect also has consequences. The latter are lasers.</p>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>
