@@ -12,7 +12,7 @@
     <section class="device" aria-label="Elly Pocket Pal virtual pet">
       <header class="device-header">
         <div>
-          <p class="eyebrow">POCKET CHIHUAHUA // v1.0</p>
+          <p class="eyebrow">POCKET CHIHUAHUA // v1.1</p>
           <h1>ELLY</h1>
         </div>
         <div class="header-actions">
@@ -25,6 +25,7 @@
         <div class="screen-grid" aria-hidden="true"></div>
         <div class="speech" id="speech" role="status" aria-live="polite">&lt;3</div>
         <div class="status-chip" id="statusChip">CONTENT</div>
+        <div class="achievement-toast hidden" id="achievementToast" role="status" aria-live="polite"></div>
 
         <div class="pet-stage">
           <img id="ellySprite" class="elly-sprite" src="assets/idle.png" alt="Pixel art of Elly the black chihuahua" draggable="false" />
@@ -71,13 +72,43 @@
         <button class="care-btn poop-btn" id="cleanPoopBtn" type="button" disabled><span class="btn-icon">◆</span><span>PICK UP POOP</span></button>
       </section>
 
+      <section class="extras-grid" aria-label="Mini games and achievements">
+        <section class="retro-panel minigame-panel" aria-labelledby="minigameTitle">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow dark">ELLY ARCADE</p>
+              <h2 id="minigameTitle">MINI GAME</h2>
+            </div>
+            <span class="panel-chip">WIN = :D // LOSE = POOP</span>
+          </div>
+
+          <p class="panel-copy" id="minigameText">Pick a game. Elly is extremely confident for someone with no money at stake.</p>
+          <div class="minigame-display" id="minigameDisplay" aria-live="polite">?</div>
+          <div class="minigame-actions" id="minigameActions">
+            <button class="game-btn" id="higherLowerBtn" type="button">HIGHER / LOWER</button>
+            <button class="game-btn" id="directionBtn" type="button">WHICH WAY?</button>
+          </div>
+        </section>
+
+        <section class="retro-panel achievement-panel" aria-labelledby="achievementTitle">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow dark">TINY DOG TROPHIES</p>
+              <h2 id="achievementTitle">ACHIEVEMENTS</h2>
+            </div>
+            <span class="panel-chip" id="achievementCount">0 / 9</span>
+          </div>
+          <div class="achievement-list" id="achievementList"></div>
+        </section>
+      </section>
+
       <footer class="device-footer">
         <span id="clockText">DAY 1 // 08:00</span>
         <span id="saveText">AUTO-SAVED</span>
       </footer>
     </section>
 
-    <p class="hint">Tip: nuggets have consequences. Neglect also has consequences. The latter are lasers.</p>
+    <p class="hint">Tip: nuggets have consequences. Mini games now also have consequences. Elly remains armed with lasers.</p>
   </main>
 
   <script src="game.js"></script>
