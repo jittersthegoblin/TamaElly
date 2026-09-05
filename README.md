@@ -14,6 +14,19 @@ A tiny retro browser pet game starring Elly, a black-and-grey chihuahua.
 
 Elly does not die. She simply becomes increasingly judgmental and armed with lasers.
 
+## Achievements
+
+Version 1.1 adds persistent retro achievements for care milestones, including poop cleanup, showers, nuggets, pets, play sessions, naps, mini-game wins/losses, and surviving laser mode.
+
+## Elly Arcade
+
+Two mini games are built into the pet device:
+
+- **Higher / Lower** — guess whether Elly's next number will be higher or lower.
+- **Which Way?** — guess whether Elly will look left or right.
+
+A win uses Elly's happy sprite and gives a little fun/love boost. A loss causes Elly to immediately leave a poop that must be cleaned up.
+
 ## Run locally
 
 Open `index.html` in a browser. No build step or server is required.
@@ -27,7 +40,9 @@ Open `index.html` in a browser. No build step or server is required.
 
 ## Save data
 
-The game stores Elly's state in the browser with `localStorage`. Needs continue to drift while the page is closed, capped at six hours of offline decay so she does not become impossibly neglected overnight.
+The game stores Elly's state, statistics, and achievement unlocks in the browser with `localStorage`. Needs continue to drift while the page is closed, capped at six hours of offline decay so she does not become impossibly neglected overnight.
+
+Existing v1.0 save data is migrated automatically by filling in the new stats/achievement fields.
 
 ## Art
 
