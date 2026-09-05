@@ -27,7 +27,8 @@ body {
   font-family: "Courier New", ui-monospace, monospace;
 }
 
-button, .message, .status-chip, .meter-label, .meter-value, .device-footer, .eyebrow, .hint {
+button, .message, .status-chip, .meter-label, .meter-value, .device-footer, .eyebrow, .hint,
+.panel-chip, .achievement-card, .minigame-display {
   font-family: "Courier New", ui-monospace, monospace;
   font-weight: 700;
 }
@@ -56,7 +57,9 @@ button, .message, .status-chip, .meter-label, .meter-value, .device-footer, .eye
 
 .device-header { margin: 0 4px 14px; }
 .eyebrow { margin: 0 0 2px; font-size: 11px; letter-spacing: .08em; opacity: .72; }
+.eyebrow.dark { color: var(--ink-soft); }
 h1 { margin: 0; font-size: clamp(28px, 7vw, 46px); line-height: .9; letter-spacing: .08em; }
+h2 { margin: 2px 0 0; font-size: 20px; letter-spacing: .05em; }
 .header-actions { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
 .tiny-btn {
   border: 2px solid #111216;
@@ -136,6 +139,23 @@ h1 { margin: 0; font-size: clamp(28px, 7vw, 46px); line-height: .9; letter-spaci
   transform: rotate(45deg);
 }
 
+.achievement-toast {
+  position: absolute;
+  z-index: 8;
+  top: 64px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(82%, 540px);
+  padding: 9px 12px;
+  border: 3px solid var(--ink);
+  background: #f8f0b9;
+  box-shadow: 4px 4px 0 rgba(31,37,42,.22);
+  text-align: center;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .03em;
+}
+
 .pet-stage {
   position: relative;
   width: min(100%, 500px);
@@ -155,6 +175,8 @@ h1 { margin: 0; font-size: clamp(28px, 7vw, 46px); line-height: .9; letter-spaci
   user-select: none;
   transform-origin: 50% 100%;
 }
+.elly-sprite.look-left { transform: scaleX(-1); }
+.elly-sprite.look-right { transform: scaleX(1); }
 .poop-sprite {
   position: absolute;
   z-index: 3;
@@ -250,6 +272,127 @@ h1 { margin: 0; font-size: clamp(28px, 7vw, 46px); line-height: .9; letter-spaci
 }
 .poop-btn:not(:disabled) { background: #e2c69c; }
 
+.extras-grid {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+  gap: 12px;
+}
+.retro-panel {
+  min-width: 0;
+  border: 3px solid var(--edge);
+  border-radius: 10px;
+  background: #ece7da;
+  box-shadow: 0 5px 0 #111216;
+  padding: 13px;
+}
+.panel-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.panel-chip {
+  flex: 0 0 auto;
+  max-width: 190px;
+  padding: 5px 7px;
+  border: 2px solid var(--edge);
+  background: #d8d0c0;
+  font-size: 10px;
+  text-align: center;
+}
+.panel-copy {
+  min-height: 44px;
+  margin: 0 0 9px;
+  color: #444943;
+  font-size: 12px;
+  line-height: 1.4;
+}
+.minigame-display {
+  display: grid;
+  place-items: center;
+  min-height: 92px;
+  margin-bottom: 10px;
+  border: 3px solid var(--edge);
+  background:
+    linear-gradient(90deg, rgba(31,46,35,.09) 1px, transparent 1px) 0 0/8px 8px,
+    linear-gradient(rgba(31,46,35,.09) 1px, transparent 1px) 0 0/8px 8px,
+    #d5e1c6;
+  font-size: clamp(28px, 6vw, 46px);
+  font-weight: 900;
+  letter-spacing: .05em;
+  text-align: center;
+}
+.minigame-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+.game-btn {
+  min-height: 48px;
+  border: 3px solid var(--edge);
+  border-radius: 7px;
+  background: #f6f1e7;
+  color: var(--ink);
+  box-shadow: 0 3px 0 #111216;
+  padding: 8px;
+  cursor: pointer;
+  font-family: "Courier New", ui-monospace, monospace;
+  font-weight: 900;
+  font-size: 11px;
+}
+.game-btn:hover:not(:disabled) { background: #fffaf0; }
+.game-btn:active:not(:disabled) { transform: translateY(2px); box-shadow: 0 1px 0 #111216; }
+.game-btn:disabled { opacity: .45; cursor: not-allowed; }
+
+.achievement-list {
+  display: grid;
+  gap: 7px;
+}
+.achievement-card {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 9px;
+  align-items: center;
+  padding: 8px;
+  border: 2px solid #7c7d78;
+  background: #d9d4c9;
+  opacity: .68;
+}
+.achievement-card.unlocked {
+  border-color: #3f5944;
+  background: #e7ead2;
+  opacity: 1;
+}
+.achievement-icon {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 2px solid var(--edge);
+  background: #c8c1b3;
+  font-size: 18px;
+  font-weight: 900;
+}
+.achievement-card.unlocked .achievement-icon { background: #f4e3a2; }
+.achievement-info { min-width: 0; }
+.achievement-name-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 11px;
+}
+.achievement-name-row span { flex: 0 0 auto; font-size: 9px; color: #5b5b55; }
+.achievement-info p { margin: 3px 0 5px; font-size: 10px; line-height: 1.25; color: #565951; }
+.achievement-progress {
+  height: 8px;
+  border: 1px solid var(--edge);
+  background: #b9b4aa;
+  overflow: hidden;
+}
+.achievement-progress span { display: block; height: 100%; background: #687a63; }
+
 .device-footer {
   margin: 15px 5px 0;
   font-size: 11px;
@@ -269,6 +412,10 @@ h1 { margin: 0; font-size: clamp(28px, 7vw, 46px); line-height: .9; letter-spaci
 @keyframes sleepBob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(3px)} }
 @keyframes rageFlash { 0%,100%{box-shadow:inset 0 0 0 4px rgba(255,255,255,.22),inset 0 0 28px rgba(36,61,36,.11)} 50%{box-shadow:inset 0 0 0 4px rgba(255,230,230,.4),inset 0 0 45px rgba(190,35,35,.35)} }
 
+@media (max-width: 760px) {
+  .extras-grid { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 700px) {
   .page-shell { width: min(100% - 12px, 920px); margin-top: 8px; }
   .device { padding: 11px; border-radius: 19px; }
@@ -284,11 +431,19 @@ h1 { margin: 0; font-size: clamp(28px, 7vw, 46px); line-height: .9; letter-spaci
   .care-btn { min-height: 58px; font-size: 11px; }
 }
 
+@media (max-width: 430px) {
+  .panel-heading { flex-direction: column; }
+  .panel-chip { max-width: none; }
+  .achievement-name-row { align-items: flex-start; flex-direction: column; gap: 2px; }
+}
+
 @media (max-width: 390px) {
   .controls { grid-template-columns: 1fr; }
+  .minigame-actions { grid-template-columns: 1fr; }
   .device-footer { align-items: flex-start; flex-direction: column; }
   .speech { top: 14px; right: 12px; }
   .status-chip { max-width: 130px; }
+  .achievement-toast { top: 62px; width: 92%; }
 }
 
 @media (prefers-reduced-motion: reduce) {
